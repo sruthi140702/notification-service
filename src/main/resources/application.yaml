@@ -1,0 +1,50 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-group
+      auto-offset-reset: earliest
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring:
+          deserializer:
+            key:
+              delegate:
+                class: org.apache.kafka.common.serialization.StringDeserializer
+            value:
+              delegate:
+                class: org.springframework.kafka.support.serializer.JsonDeserializer
+          json:
+            trusted:
+              packages: "*"
+  application:
+    name:  notification-service
+  mail:
+    host:
+      port: 587
+      username:
+      password:
+      properties:
+        mail:
+          smtp:
+            auth: true
+            starttls:
+              enable: true
+
+twilio:
+  accountSid:
+  authToken:
+  from:
+  to:
+
+server:
+  port: 8083
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+
