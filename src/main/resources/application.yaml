@@ -31,8 +31,23 @@ spring:
               packages: "*"
   application:
     name:  notification-service
+  mail:
+    host:
+      port: 587
+      username:
+      password:
+      properties:
+        mail:
+          smtp:
+            auth: true
+            starttls:
+              enable: true
 
-
+twilio:
+  accountSid: ${ACCOUNT_SID}
+  authToken: ${AUTH_TOKEN}
+  from: ${TWILIO_FROM}
+  to: ${TWILIO_TO}
 
 server:
   port: 8083
@@ -41,8 +56,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
-
 
 
 
