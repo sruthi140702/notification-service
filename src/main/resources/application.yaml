@@ -1,4 +1,15 @@
 spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username:
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
@@ -20,23 +31,8 @@ spring:
               packages: "*"
   application:
     name:  notification-service
-  mail:
-    host:
-      port: 587
-      username:
-      password:
-      properties:
-        mail:
-          smtp:
-            auth: true
-            starttls:
-              enable: true
 
-twilio:
-  accountSid:
-  authToken:
-  from:
-  to:
+
 
 server:
   port: 8083
@@ -45,6 +41,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+
 
 
 
